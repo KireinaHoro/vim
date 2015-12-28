@@ -1,8 +1,11 @@
 " Pathogen
 execute pathogen#infect()
 
+" Key mappings
 inoremap jk <ESC>
 let mapleader = "\<Space>"
+
+" Various settings
 filetype plugin indent on
 syntax on
 set encoding=utf-8
