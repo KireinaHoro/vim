@@ -5,3 +5,7 @@
 [submodule "vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive
+
+[submodule "vim-surround"]
+	path = bundle/vim-surround
+	url = git://github.com/tpope/vim-surround
