@@ -13,3 +13,7 @@
 [submodule "vim-airline"]
 	path = bundle/vim-airline
 	url = git://github.com/bling/vim-airline
+
+[submodule "haskell-vim"]
+	path = bundle/haskell-vim
+	url = git://github.com/neovimhaskell/haskell-vim
