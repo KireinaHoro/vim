@@ -15,3 +15,6 @@ set shiftwidth=4
 set softtabstop=4
 set hlsearch
 set nu
+
+" vim-airline
+let g:airline_powerline_fonts = 1
