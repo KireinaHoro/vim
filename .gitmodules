@@ -14,3 +14,6 @@
 	path = bundle/vim-airline
 	url = git://github.com/bling/vim-airline
 
+[submodule "haskellmode-vim"]
+    path = bundle/haskellmode-vim
+    url = git://github.com/lukerandall/haskellmode-vim
