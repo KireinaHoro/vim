@@ -17,8 +17,3 @@
 [submodule "haskellmode-vim"]
     path = bundle/haskellmode-vim
     url = git://github.com/lukerandall/haskellmode-vim
-
-[submodule "vim-haskell-indent"]
-    path = bundle/vim-haskell-indent
-    url = git://github.com/itchyny/vim-haskell-indent
-
