@@ -22,3 +22,6 @@
     path = bundle/vim-haskell-indent
     url = git://github.com/itchyny/vim-haskell-indent
 
+[submodule "bundle/vim-husk"]
+	path = bundle/vim-husk
+	url = https://github.com/vim-utils/vim-husk
