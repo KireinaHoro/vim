@@ -1,5 +1,6 @@
 # vim
-Clone into `~/.vim` by:
 
-    git clone --recursive https://github.com/xubin990510/vim ~/.vim
+Clone to `.vim` with:
+
+    git clone --recursive git@github.com:KireinaHoro/vim.git ~/.vim
 
