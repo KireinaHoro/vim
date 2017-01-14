@@ -31,6 +31,7 @@ if has("multi_byte")
 	set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+" haskellmode config
 au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/firefox"
 let g:haddock_browser_callformat = "'%s file://%s '.printf(&shellredir,'/dev/null').' &'"
