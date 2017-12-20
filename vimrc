@@ -35,3 +35,8 @@ endif
 au BufEnter *.hs compiler ghc
 let g:haddock_browser="/usr/bin/firefox"
 let g:haddock_browser_callformat = "'%s file://%s '.printf(&shellredir,'/dev/null').' &'"
+
+" prefer LaTeX flavor of TeX
+let g:tex_flavor = "latex"
+" `ysiwc` for inserting LaTeX command
+let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
