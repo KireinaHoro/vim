@@ -25,3 +25,6 @@
 [submodule "bundle/vim-husk"]
 	path = bundle/vim-husk
 	url = https://github.com/vim-utils/vim-husk
+[submodule "bundle/vimtex"]
+	path = bundle/vimtex
+	url = https://github.com/lervag/vimtex
