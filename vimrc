@@ -15,6 +15,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set hlsearch
+set incsearch
 set nu
 
 " vim-airline
