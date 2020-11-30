@@ -20,6 +20,7 @@ set nu
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+set bg=dark
 
 " encoding
 if has("multi_byte")
