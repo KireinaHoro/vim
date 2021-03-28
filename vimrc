@@ -58,3 +58,15 @@ au FileType c,cpp,objc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 au FileType c,cpp,objc nnoremap <buffer><Leader>C :ClangFormatAutoToggle<CR>
 au FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 au FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+
+set list listchars=trail:.,extends:>
+au FileWritePre * call TrimWhiteSpace()
+au FileAppendPre * call TrimWhiteSpace()
+au FilterWritePre * call TrimWhiteSpace()
+au BufWritePre * call TrimWhiteSpace()
