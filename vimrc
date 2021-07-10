@@ -12,7 +12,7 @@ set encoding=utf-8
 set nocompatible
 set hlsearch
 set incsearch
-set nu
+set nu rnu
 set bg=dark
 
 set tabstop=4
@@ -48,7 +48,7 @@ let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 let g:clang_format#code_style = "llvm"
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
-let g:clang_format#auto_format_on_insert_leave = 1
+" let g:clang_format#auto_format_on_insert_leave = 1
 if !executable("clang-format")
     " use clang-format from SCL
     let g:clang_format#command = "/opt/rh/llvm-toolset-7/root/usr/bin/clang-format"
@@ -65,8 +65,16 @@ function TrimWhiteSpace()
   ''
 endfunction
 
-set list listchars=trail:.,extends:>
+" Control characters expansion
+set list listchars=tab:»-,trail:.,eol:↲,extends:»,precedes:«,nbsp:%
 au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
 au FilterWritePre * call TrimWhiteSpace()
 au BufWritePre * call TrimWhiteSpace()
+hi NonText      ctermbg=None ctermfg=DarkGrey guibg=None guifg=None
+hi SpecialKey   ctermbg=None ctermfg=DarkGrey guibg=None guifg=None
+
+" Cursorline control
+set cursorline
+hi CursorLine cterm=None ctermbg=233 ctermfg=None guibg=None guifg=None
+nnoremap H :set cursorline!<CR>
