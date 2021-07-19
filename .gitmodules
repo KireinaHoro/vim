@@ -31,3 +31,6 @@
 [submodule "bundle/vim-clang-format"]
 	path = bundle/vim-clang-format
 	url = https://github.com/rhysd/vim-clang-format
+[submodule "bundle/vim-nix"]
+	path = bundle/vim-nix
+	url = https://github.com/LnL7/vim-nix.git
