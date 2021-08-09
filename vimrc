@@ -60,13 +60,18 @@ au FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 au FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
+function! TrimWhiteSpace()
+    " Only strip if the b:noStripWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s*$//
+    ''
 endfunction
 
 " Control characters expansion
 set list listchars=tab:»-,trail:.,eol:↲,extends:»,precedes:«,nbsp:%
+au FileType diff let b:noStripWhitespace=1
 au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
 au FilterWritePre * call TrimWhiteSpace()
