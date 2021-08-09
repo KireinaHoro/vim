@@ -76,6 +76,14 @@ au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
 au FilterWritePre * call TrimWhiteSpace()
 au BufWritePre * call TrimWhiteSpace()
+
+" Highlighting-related
+function! SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 hi NonText      ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 
@@ -83,3 +91,7 @@ hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 set cursorline
 hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE guibg=NONE guifg=NONE
 nnoremap H :set cursorline!<CR>
+
+" Fix cursorline TODO conflict:
+" https://vi.stackexchange.com/questions/3288/override-cursorline-background-color-by-syntax-highlighting
+hi Todo         ctermbg=Black ctermfg=Yellow cterm=reverse
