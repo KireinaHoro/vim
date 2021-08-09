@@ -101,3 +101,6 @@ nnoremap t. :tabedit %<CR>
 nnoremap tc :tabclose<CR>
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprevious<CR>
+
+" Markdown
+let g:markdown_fenced_languages = ['vim', 'bash']
