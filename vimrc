@@ -95,3 +95,9 @@ nnoremap H :set cursorline!<CR>
 " Fix cursorline TODO conflict:
 " https://vi.stackexchange.com/questions/3288/override-cursorline-background-color-by-syntax-highlighting
 hi Todo         ctermbg=Black ctermfg=Yellow cterm=reverse
+
+" Tabs
+nnoremap t. :tabedit %<CR>
+nnoremap tc :tabclose<CR>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprevious<CR>
