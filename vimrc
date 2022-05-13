@@ -60,17 +60,30 @@ au FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 au FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
+function! TrimWhiteSpace()
+    " Only strip if the b:noStripWhitespace variable isn't set
+    if exists('b:noStripWhitespace')
+        return
+    endif
+    %s/\s*$//
+    ''
 endfunction
 
 " Control characters expansion
 set list listchars=tab:»-,trail:.,eol:↲,extends:»,precedes:«,nbsp:%
+au FileType diff let b:noStripWhitespace=1
 au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
 au FilterWritePre * call TrimWhiteSpace()
 au BufWritePre * call TrimWhiteSpace()
+
+" Highlighting-related
+function! SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 hi NonText      ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 
@@ -78,3 +91,16 @@ hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 set cursorline
 hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE guibg=NONE guifg=NONE
 nnoremap H :set cursorline!<CR>
+
+" Fix cursorline TODO conflict:
+" https://vi.stackexchange.com/questions/3288/override-cursorline-background-color-by-syntax-highlighting
+hi Todo         ctermbg=Black ctermfg=Yellow cterm=reverse
+
+" Tabs
+nnoremap t. :tabedit %<CR>
+nnoremap tc :tabclose<CR>
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprevious<CR>
+
+" Markdown
+let g:markdown_fenced_languages = ['vim', 'bash']
