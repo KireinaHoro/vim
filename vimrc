@@ -71,10 +71,10 @@ au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
 au FilterWritePre * call TrimWhiteSpace()
 au BufWritePre * call TrimWhiteSpace()
-hi NonText      ctermbg=None ctermfg=DarkGrey guibg=None guifg=None
-hi SpecialKey   ctermbg=None ctermfg=DarkGrey guibg=None guifg=None
+hi NonText      ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
+hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 
 " Cursorline control
 set cursorline
-hi CursorLine cterm=None ctermbg=233 ctermfg=None guibg=None guifg=None
+hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE guibg=NONE guifg=NONE
 nnoremap H :set cursorline!<CR>
