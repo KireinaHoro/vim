@@ -14,6 +14,7 @@ set hlsearch
 set incsearch
 set nu rnu
 set bg=dark
+" set bg=light
 
 set tabstop=4
 set shiftwidth=4
@@ -47,7 +48,7 @@ let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 " ClangFormat
 let g:clang_format#code_style = "llvm"
 let g:clang_format#detect_style_file = 1
-let g:clang_format#auto_format = 1
+" let g:clang_format#auto_format = 1
 " let g:clang_format#auto_format_on_insert_leave = 1
 if !executable("clang-format")
     " use clang-format from SCL
@@ -104,3 +105,16 @@ nnoremap tp :tabprevious<CR>
 
 " Markdown
 let g:markdown_fenced_languages = ['vim', 'bash']
+
+" vim-tbone remaps
+nnoremap <leader>y :Tyank<CR>
+
+" global search with vim-ripgrep
+let g:rg_derive_root = 1
+nnoremap <leader>* :Rg -w <cword><CR>
+
+set switchbuf+=usetab,newtab
+
+" fold with syntax by default
+set foldmethod=syntax
+set nofoldenable
