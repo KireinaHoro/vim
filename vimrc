@@ -48,17 +48,13 @@ let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 " ClangFormat
 let g:clang_format#code_style = "llvm"
 let g:clang_format#detect_style_file = 1
-" let g:clang_format#auto_format = 1
-" let g:clang_format#auto_format_on_insert_leave = 1
-if !executable("clang-format")
-    " use clang-format from SCL
-    let g:clang_format#command = "/opt/rh/llvm-toolset-7/root/usr/bin/clang-format"
-endif
+let g:clang_format#auto_format = 1
+let g:clang_format#auto_format_on_insert_leave = 1
 
 au FileType c,cpp,objc setlocal tabstop=2 shiftwidth=2 softtabstop=2
-au FileType c,cpp,objc nnoremap <buffer><Leader>C :ClangFormatAutoToggle<CR>
-au FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-au FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+au FileType c,cpp,objc nnoremap <buffer><leader>C :ClangFormatAutoToggle<CR>
+au FileType c,cpp,objc nnoremap <buffer><leader>cf :<C-u>ClangFormat<CR>
+au FileType c,cpp,objc vnoremap <buffer><leader>cf :ClangFormat<CR>
 
 " Removes trailing spaces
 function! TrimWhiteSpace()
@@ -72,6 +68,10 @@ endfunction
 
 " Control characters expansion
 set list listchars=tab:»-,trail:.,eol:↲,extends:»,precedes:«,nbsp:%
+" allow copying out of the term: disable line numbers and control expansion
+nnoremap <leader>N :set invnu invrnu invlist<CR>
+
+" trim whitespaces
 au FileType diff let b:noStripWhitespace=1
 au FileWritePre * call TrimWhiteSpace()
 au FileAppendPre * call TrimWhiteSpace()
@@ -91,7 +91,7 @@ hi SpecialKey   ctermbg=NONE ctermfg=DarkGrey guibg=NONE guifg=NONE
 " Cursorline control
 set cursorline
 hi CursorLine cterm=NONE ctermbg=233 ctermfg=NONE guibg=NONE guifg=NONE
-nnoremap H :set cursorline!<CR>
+nnoremap <leader>H :set cursorline!<CR>
 
 " Fix cursorline TODO conflict:
 " https://vi.stackexchange.com/questions/3288/override-cursorline-background-color-by-syntax-highlighting
@@ -118,3 +118,7 @@ set switchbuf+=usetab,newtab
 " fold with syntax by default
 set foldmethod=syntax
 set nofoldenable
+
+" highlight column 80
+set colorcolumn=80
+hi ColorColumn cterm=NONE ctermbg=233 ctermfg=NONE guibg=NONE guifg=NONE
